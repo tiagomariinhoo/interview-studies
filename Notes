@@ -9,3 +9,27 @@ Google Interview
 - How to design a scalable system
     - Questions like System Design and Scalability
 - Page 36, tips about what say
+
+- Core Concepts
+
+* Data Structures
+    - Linked Lists
+    - Trees, Tries and Graphs
+    - Stacks and Queues
+    - Heaps
+    - Vector / ArrayLists
+    - Hash Tables (Important)
+
+* Algorithms
+    - BFS
+    - DFS
+    - Binary Search
+    - Merge Sort
+    - Quick Sort
+
+* Concepts
+    - Bit Manipulation
+    - Memory (Stach vs Heap)
+    - Recursion
+    - DP
+    - Big O
