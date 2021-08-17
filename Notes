@@ -1,3 +1,7 @@
+C++ Compile:
+g++-10 -std=c++17 sol.cpp -o sol
+./sol < in
+
 - Make a great resume
 
 Google Interview
