@@ -2,6 +2,8 @@ C++ Compile:
 g++-10 -std=c++17 sol.cpp -o sol
 ./sol < in
 
+https://techdevguide.withgoogle.com/paths/interview/
+
 - Make a great resume
 
 Google Interview
