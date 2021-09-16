@@ -1,4 +1,4 @@
-C++ Compile:
+C++ Compile Mac:
 g++-10 -std=c++17 sol.cpp -o sol
 ./sol < in
 
