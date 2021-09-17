@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/random-pick-index/submissions/
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -13,8 +14,9 @@ public:
     }
     
     int pick(int target) {
+      int value = mp[target].size();
 
-     return 0;   
+      return mp[target][rand() % value];
     }
 };
 
