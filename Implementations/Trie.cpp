@@ -66,7 +66,7 @@ int main() {
   vector<string> keys = {"the", "a", "there","answer", "any", "by","bye", "their" };
 
   int n = keys.size();
-  struct TrieNode *root = getNode();
+  struct TrieNode *root = createNode();
   //Build Trie
   for (int i = 0; i < keys.size(); i++) {
     insert(root, keys[i]);
