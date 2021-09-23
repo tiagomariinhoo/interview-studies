@@ -5,6 +5,7 @@ g++-10 -std=c++17 sol.cpp -o sol
 https://techdevguide.withgoogle.com/paths/interview/
 https://codeforces.com/blog/entry/77979
 - https://interviews.school/
+- https://codeforces.com/blog/entry/95106 (Topics)
 
 - Make a great resume
 
