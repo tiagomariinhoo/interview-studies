@@ -8,6 +8,8 @@ using namespace std;
  * Where 2 ˆ N is the recursion time
  * And N is because you need to push all strings
  * into the vector
+ * 
+ * Or the solution runs in 2 ^ N?
  */ 
 
 class Solution {
