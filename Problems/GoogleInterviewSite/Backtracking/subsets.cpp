@@ -2,7 +2,10 @@
 using namespace std;
 
 /**
- * This solution can runs in exponential time 2ˆn
+ * 
+ * https://leetcode.com/problems/subsets/solution/
+ * 
+ * This solution can runs in exponential time n*2ˆn
  * where N is the number of elements in globalNums
  * 
  * Basically the solution is the following
@@ -22,6 +25,11 @@ using namespace std;
  * 0 2
  * 0 3
  * 1 2...
+ * 
+ * Just the recursion takes 2ˆn
+ * But if we add the time that the algorithms takes to
+ * pushing a vector inside another, this will take linear time
+ * Then the complexity time at the final of the algorithm is: N * 2 ^ N
  */ 
 
 class Solution {
