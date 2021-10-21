@@ -18,29 +18,21 @@ int dy[] = {0, 0, 1, -1};
 int dddx[] = {1, -1, 0, 0, 1, 1, -1, -1};
 int dddy[] = {0, 0, 1, -1, 1, -1, 1, -1};
 
+struct Node {
+  Node *leftNode;
+  Node *rightNode;
+  int len;
+  string value;
+}
+
+char dfs(Node node, int index) {
+  
+}
+
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  int n;
-
-  vector<int> vec;
-
-  cin >> n;
-  for(int i=0;i<n;i++) {
-    int a;
-    cin >> a;
-    vec.push_back(a);
-  }
-
-  sort(vec.begin(), vec.end());
-
-  int a = 0, b = vec.size() - 1;
-
-  lli sum = 0;
-  sum += ()
-
-  
 
   return 0;
 }
