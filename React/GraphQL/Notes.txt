@@ -2,9 +2,18 @@ Main Link - https://dev.to/mensonones/consumindo-api-graphql-usando-react-e-apol
 Minimal info about GraphQL -> https://adrianolisboa.com/o-minimo-que-voce-precisa-saber-sobre-graphql-para-nao-passar-vergonha-em-uma-conversa/
 What is GraphQL -> https://www.redhat.com/pt-br/topics/api/what-is-graphql
 
+Creating React App nowadays -> https://youtu.be/pDbcC-xSat4
+-> yarn create vite project-name --template react-ts
+(using Vite to create ReactApp instead create-react-app)
+
 Basically GraphQL is a query language created by Facebook. One of the problemas that we have today
 is that the client needs to consume all the informations that are given by the server side and
 usually it's necessary make a lot of different endpoints to get those informations.
 
 Using the GraphQL the client decies which informations he want to consume. This can avoid the
-over-fetching (that would be consume datas that u don't even need)
+over-fetching (that would be consume datas that u don't even need) and also avoid
+the under-fetching instead, that would be call a lot of endpoints to have all the info needed.
+
+----- Apollo -> https://www.apollographql.com/
+One of the main GraphQL implementations; provide a huge plataform that contains
+server-side and client-side implementations.

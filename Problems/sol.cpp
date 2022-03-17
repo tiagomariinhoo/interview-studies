@@ -18,45 +18,61 @@ int dy[] = {0, 0, 1, -1};
 int dddx[] = {1, -1, 0, 0, 1, 1, -1, -1};
 int dddy[] = {0, 0, 1, -1, 1, -1, 1, -1};
 
-  struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode() : val(0), next(nullptr) {}
-      ListNode(int x) : val(x), next(nullptr) {}
-      ListNode(int x, ListNode *next) : val(x), next(next) {}
-  };
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
-ListNode *reverseList(ListNode* head) {
+/**
+ * I think the first step is reverse the list to make the sum.
+ */
+
+ListNode* reverseList(ListNode *head) {
   ListNode *prevNode = NULL;
-  while(head != NULL) {
+  while(head->next != NULL) {
     ListNode *nextNode = head->next;
+    nextNode->next = head;
     head->next = prevNode;
-    prevNode = head;
-    head = nextNode;
+    prevNode = head;    
   }
+
+  return prevNode;
 }
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-  ListNode *ans = new ListNode();
   l1 = reverseList(l1);
-  l2 = reverseList(l2);
+  l2 = reverseList(l2);  
 
-  int sum = 0;
+  ListNode *answer = new ListNode();
+  ListNode *head = answer;
+  int rem = 0;
 
-  while(l2 != NULL || l1 != NULL) {
-    if(l2 != NULL && l1 != NULL) {
-      ans->val = 
-      sum = (l2->val + l1-> val)/10;
-      
-    } else if(l2 != NULL) {
-      
+  while(l1 != NULL or l2 != NULL) {
+    if(l1 != NULL && l2 != NULL) {
+      int sum = l1->val + l2->val;
+      answer->val = sum%10 + rem;
+      rem = sum/10;
+
+      l1 = l1->next;
+      l2 = l2->next;
+    } else if(l1 != NULL) {
+      answer->val = l1->val + rem;
+      l1 = l1->next;
     } else {
-
+      answer->val = l2->val + rem;
+      l2 = l2->val;
     }
+
+    answer->next = new ListNode();
+    answer = answer->next;
   }
 
-  return reverseList(ans);
+  return head;
 }
+
 
 int main(){
   ios_base::sync_with_stdio(false);
