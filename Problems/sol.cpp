@@ -18,7 +18,7 @@ int dy[] = {0, 0, 1, -1};
 int dddx[] = {1, -1, 0, 0, 1, 1, -1, -1};
 int dddy[] = {0, 0, 1, -1, 1, -1, 1, -1};
 
-int main(){
+int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
