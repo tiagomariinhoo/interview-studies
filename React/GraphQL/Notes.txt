@@ -2,6 +2,8 @@ Main Link - https://dev.to/mensonones/consumindo-api-graphql-usando-react-e-apol
 Minimal info about GraphQL -> https://adrianolisboa.com/o-minimo-que-voce-precisa-saber-sobre-graphql-para-nao-passar-vergonha-em-uma-conversa/
 What is GraphQL -> https://www.redhat.com/pt-br/topics/api/what-is-graphql
 
+GraphQL in 4 hours -> https://youtu.be/yqWzCV0kU_c?list=LL
+
 Creating React App nowadays -> https://youtu.be/pDbcC-xSat4
 -> yarn create vite project-name --template react-ts
 (using Vite to create ReactApp instead create-react-app)
@@ -13,6 +15,25 @@ usually it's necessary make a lot of different endpoints to get those informatio
 Using the GraphQL the client decies which informations he want to consume. This can avoid the
 over-fetching (that would be consume datas that u don't even need) and also avoid
 the under-fetching instead, that would be call a lot of endpoints to have all the info needed.
+
+There are two types of requests:
+- Query (get)
+- Mutation (put / delete / post)
+
+U have just one endpoint
+
+/user     |
+/followers| -> /graphQl
+/posts    |
+
+Public GraphQL API: https://countries.trevorblades.com/
+GraphQL Playground for use like postman
+
+1 - Basic types and Queries 
+
+-> apollo-server / apollo-client
+
+2 - Apollo Client Library
 
 ----- Apollo -> https://www.apollographql.com/
 One of the main GraphQL implementations; provide a huge plataform that contains
