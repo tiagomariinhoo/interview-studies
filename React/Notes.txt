@@ -1,0 +1,1 @@
+React bad habits - https://dev.to/srmagura/bad-habits-of-mid-level-react-developers-b41

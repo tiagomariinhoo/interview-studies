@@ -38,3 +38,12 @@ GraphQL Playground for use like postman
 ----- Apollo -> https://www.apollographql.com/
 One of the main GraphQL implementations; provide a huge plataform that contains
 server-side and client-side implementations.
+
+
+----- CSS
+Pixel or Rem -> https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/
+
+
+-----
+Sync with Effects -> https://beta-reactjs-org-git-effects-fbopensource.vercel.app/learn/synchronizing-with-effects
+Reactathon -> https://www.youtube.com/watch?v=Ck-e3hd3pKw&t=3991s
