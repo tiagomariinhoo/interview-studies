@@ -1,1 +1,10 @@
 React bad habits - https://dev.to/srmagura/bad-habits-of-mid-level-react-developers-b41
+
+
+----- CSS
+Pixel or Rem -> https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/
+
+
+-----
+Sync with Effects -> https://beta-reactjs-org-git-effects-fbopensource.vercel.app/learn/synchronizing-with-effects
+Reactathon -> https://www.youtube.com/watch?v=Ck-e3hd3pKw&t=3991s
