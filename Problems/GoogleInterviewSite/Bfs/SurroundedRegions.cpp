@@ -1,6 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * https://leetcode.com/problems/surrounded-regions/submissions/
+ * 
+ * Problem also pretty easy
+ * Just need to start from the borders, filling all islands with '.'
+ * and after this, just change all remainder islands with X and put the '.' to 'O' again
+ * 
+ * Complexity is O(n*m) since u need to check all cells
+ */ 
+
 vector<vector<char>> vec;
 vector<int> dx = {1, 0, -1, 0};
 vector<int> dy = {0, 1, 0, -1};
