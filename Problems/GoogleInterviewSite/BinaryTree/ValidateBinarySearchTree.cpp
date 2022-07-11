@@ -58,6 +58,83 @@ public:
     }
 };
 
+#include <bits/stdc++.h>
+using namespace std;
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+bool at = true;
+long long int aux = -LLONG_MAX;
+
+/**
+ * Another good property to use in BST is that if u read the elements in order
+ * u can see that they will be ordered
+ */ 
+// bool isValidBST(TreeNode* root) {
+
+//     bool testLeft = true, testRight = true;
+//     if(root->left != NULL) {
+//         if(root->left->val < root->val) {
+//             testLeft = isValidBST(root->left);
+//         } else {
+//             testLeft = false;
+//         }
+//     } 
+    
+//     if(aux >= root->val) testLeft = false;
+//     aux = root->val;
+
+//     if(root->right != NULL) {
+//         if(root->right->val > root->val) {
+//             testRight = isValidBST(root->right);
+//         } else {
+//             testRight = false;
+//         }
+//     } 
+
+    
+
+//     return (testLeft && testRight);
+// }
+
+vector<int> ans;
+void solve(TreeNode *root) {
+    if(root == NULL) return true;
+    if(root->left != NULL){
+        solve(root->left);
+    }
+    ans.push_back(root->val);
+    if(root->right != NULL){
+        solve(root->right);
+    }
+}
+bool isValidBST(TreeNode* root) {
+    solve(root);
+    for(int i=1;i<ans.size();i++) {
+        if(ans[i] <= ans[i-1]) return false;
+    }
+
+    return true;
+}
+
+
+int main(){
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  
+  return 0;
+}
+
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
