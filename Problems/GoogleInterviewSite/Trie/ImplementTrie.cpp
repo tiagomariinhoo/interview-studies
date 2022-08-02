@@ -18,6 +18,12 @@ int dy[] = {0, 0, 1, -1};
 int dddx[] = {1, -1, 0, 0, 1, 1, -1, -1};
 int dddy[] = {0, 0, 1, -1, 1, -1, 1, -1};
 
+/**
+ * Complexity of creating a trie is O(W * L),
+ * where W is the number of words and L is an average
+ * length of the word
+ */ 
+
 class Trie {
 public:
 
