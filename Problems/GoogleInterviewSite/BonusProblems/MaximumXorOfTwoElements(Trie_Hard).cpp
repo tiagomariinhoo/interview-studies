@@ -1,7 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct TrieNode {
+/**
+ * https://iq.opengenus.org/maximum-xor-trie/#:~:text=The%20global%20maximum%20XOR%20is,with%200%2C%20which%20is%2013.
+ * 
+ * Problem: https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/submissions/
+ * 
+ * Basically u just need to find the maximum xor of two numbers.
+ * 
+ * My solution was using Trie. Where I can insert all the binary numbers (with 30 chars)
+ * for each element into my Trie, and for each element, I just need to make a dfs looking
+ * for the oposite bit, this will ensure that u're getting the largest number
+ * 
+ * For example:
+ * 01101
+ * -> when make the dfs, will start the dfs looking for a 1
+ * -> after that for a 0
+ * -> 0
+ * -> 1
+ * -> 0,
+ * if there's no oposite number, just go ahead and get the same number to try
+ * the next one
+ */ 
+
+class Solution {
+public:
+   struct TrieNode {
   TrieNode *zero;
   TrieNode *one;
 
@@ -83,8 +107,6 @@ void dfs(int idx, TrieNode *node, long long int mask) {
 
 bool find(vector<int> binary) {
   TrieNode *aux = head;
-  // for(auto i : binary) cout << i << " ";
-  // cout << endl;
 
   for(int i = 0; i < binary.size(); i++) {
     cout << i << " - " << binary[i] << endl;
@@ -105,45 +127,31 @@ bool find(vector<int> binary) {
 
   return aux->endOfWord;
 }
+    
+    int findMaximumXOR(vector<int>& nums) {
+         // vector<int> vec = {3, 10, 5, 25, 2, 8};
+        head = new TrieNode();
+
+         for(auto i : nums) {
+            insert(decimalToBinary(i));
+          }
+
+          for(auto i : nums) {
+            currentBinary = decimalToBinary(i);
+            TrieNode *aux = head;
+
+            dfs(0, aux, 0LL);
+          }
+
+          return ans;
+    }
+};
+
+
 
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  head = new TrieNode();
-
-  vector<int> vec = {3, 10, 5, 25, 2, 8};
-
-  for(auto i : vec) {
-    insert(decimalToBinary(i));
-    // vector<int> aux = decimalToBinary(i);
-    // cout << i << " - ";
-    // for(auto j : aux) cout << j << " ";
-    // cout << endl;
-  }
-  // insert(decimalToBinary(5));
-  // insert(decimalToBinary(3));
-
-  // if(find(decimalToBinary(vec[2]))) {
-  //   cout << "Achou!" << endl;
-  // }
-
-  for(auto i : vec) {
-    currentBinary = decimalToBinary(i);
-    TrieNode *aux = head;
-    // cout << "Element: " << i << endl;
-    dfs(0, aux, 0LL);
-    // cout << endl;
-  }
-
-  // cout << ans << endl;
-
   return 0;
 }
-
-// 11001 - 25
-// 00011 - 3
-// 01010 - 10
-// 00101 - 5
-// 00010 - 2
-// 01000 - 8
