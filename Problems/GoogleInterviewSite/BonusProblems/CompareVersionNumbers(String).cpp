@@ -17,6 +17,10 @@ using namespace std;
  * 
  * Then we need to make the size equal filling with zeros:
  * 1.0 -> 1.0.0
+ * 
+ * During the interview, it's important ask if the numbers
+ * between the dots, will be always numbers because if not
+ * stoi will not work
  */ 
 
 class Solution {
