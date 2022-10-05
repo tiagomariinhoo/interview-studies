@@ -79,6 +79,46 @@ string longestPalindrome(string s) {
   return aa;
 }
 
+/**
+ * Solution in square time
+ * Just using the normal idea of using a memoization to check
+ * if the s[i+1][j-1] is also a palindrome
+ */ 
+
+class Solution {
+public:
+    int memo[1010][1010];
+    string globalString;
+    int l = 0, r = 0;
+    
+    int solve(int i, int j) {
+        if(i < 0 or j >= globalString.size() || i > j) return 0;
+        if(i == j) return memo[i][j] = 1;
+        if(memo[i][j] != -1) return memo[i][j];
+        
+        
+        int c = solve(i + 1, j);
+        int b = solve(i, j - 1);
+        int a = solve(i + 1, j - 1);
+        
+        if(globalString[i] == globalString[j] && a || globalString[i] == globalString[j] && j - i <= 1) {
+            if((j - i) > (r - l)) l = i, r = j;
+            return memo[i][j] = 1;
+        }
+        
+        return memo[i][j] = 0;
+    }
+    
+    string longestPalindrome(string s) {
+        globalString = s;
+        memset(memo, -1, sizeof memo);
+    
+        solve(0, s.size() - 1);
+        
+        return s.substr(l, (r - l) + 1);
+    }
+};
+
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
