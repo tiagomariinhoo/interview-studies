@@ -23,7 +23,7 @@ int dddy[] = {0, 0, 1, -1, 1, -1, 1, -1};
  * 
  * This can be solved in linear time
  * 
- * You just need to see that if u do a dfs in order on a BST
+ * You just need to see that if u do a dfs in order in a BST
  * If its a really BST, the sequence will be:
  * 1 2 3 4 5... so u just need to store a count and if count == k, u get the answer
  * 
