@@ -2,10 +2,15 @@
 
 using namespace std;
 
-map<string, vector<pair<int, string> > > test;
+
 
 int main () {
+  ofstream outdata;
+  outdata.open("kkkkinfamy.text");
+  for(int i = 1; i <= 3000; i++) {
+    outdata << i << "," << endl;
+  }
+  outdata.close();
 
-  test["alo"].push_back({1, "teste"});
   return 0;
 }
