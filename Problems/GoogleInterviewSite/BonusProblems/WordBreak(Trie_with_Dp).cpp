@@ -16,73 +16,80 @@ using namespace std;
 
 class Solution {
 public:
-    bool ans = false;
-    string globalString;
-    
     static const int ALPHABET_SIZE = 26;
-    
+
+    /**
+        Solution that runs in quadratic time and use Trie + Dp
+        Just need to put all the word dict strings into the trie
+        and check the String S with a Dfs. The point here is to use
+        Dynamic Programming when there's a (idx, node) that was already visited
+        
+    */
+
     struct TrieNode {
-        TrieNode *children[ALPHABET_SIZE];
+        TrieNode *next[ALPHABET_SIZE];
         bool endOfWord;
     };
-    
-    TrieNode *head;
-    
+
+    TrieNode *root;
+    bool ans = false;
+
     TrieNode *createNode() {
-        TrieNode *newNode =  new TrieNode();
-        newNode->endOfWord = false;
-        for(int i = 0; i < ALPHABET_SIZE; i++) {
-            newNode->children[i] = NULL;
+        TrieNode *newNode = new TrieNode();
+        for (int i = 0; i < ALPHABET_SIZE; i++) {
+            newNode->next[i] = NULL;
         }
-        
+
+        newNode->endOfWord = false;
+
         return newNode;
     }
-    
-    void insert(string word) {
-        TrieNode *aux = head;
-        for(auto i : word) {
+
+    void insertWord(string s) {
+        TrieNode *aux = root;
+
+        for (auto i : s) {
             int current = i - 'a';
-            if(aux->children[current] == NULL) {
-                aux->children[current] = createNode();
-            }
-            
-            aux = aux->children[current];
+            if (aux->next[current] == NULL) {
+                aux->next[current] = createNode();
+            } 
+            aux = aux->next[current];
         }
         aux->endOfWord = true;
     }
-    
-    map<pair<int, TrieNode*>, int>  memo;
-    
-    int solve(int pos, TrieNode *currentNode) {
-        if(currentNode == NULL) return 2;
-        
-        if(pos == globalString.size() - 1) {
-            if(currentNode->endOfWord) {
-                return 1;
+
+    map<pair<int, TrieNode*>, int> memo;
+    int dfs(int idx, string s, TrieNode *aux) {
+        if (aux == NULL) return 1;
+        if (idx == s.size() - 1) {
+            if (aux->endOfWord == true) {
+                return 2;
             }
-            return 2;
+            return 1;
         }
-        
-        if(memo[{pos, currentNode}] != 0) {
-            return memo[{pos, currentNode}];
+
+        if (memo[{idx, aux}] != 0) {
+            return memo[{idx, aux}];
         }
-        
-        int a = 0, b = 0;
-        a = solve(pos + 1, currentNode->children[globalString[pos + 1] - 'a']);
-        if(currentNode->endOfWord == true)
-            b = solve(pos + 1, head->children[globalString[pos + 1] - 'a']); 
-        
-        memo[{pos, currentNode}] = (a == 1 | b == 1) ? 1 : 2;
-        
-        return memo[{pos, currentNode}];
+
+        int next = s[idx + 1] - 'a';
+        int a = dfs(idx + 1, s, aux->next[next]);
+
+        if (aux->endOfWord == true) {
+            int b = dfs(idx + 1, s, root->next[s[idx + 1] - 'a']);
+            if (a == 2 || b == 2) return memo[{idx, aux}] = 2;
+        }
+
+        return memo[{idx, aux}] = a;
     }
-    
+ 
     bool wordBreak(string s, vector<string>& wordDict) {
-        head = createNode();
-        globalString = s;
-        
-        for(auto i : wordDict) insert(i);
-        return solve(0, head->children[s[0] - 'a']) == 1 ? true : false;
+        root = createNode();
+        for (auto i : wordDict) insertWord(i);
+
+
+
+        return dfs(0, s, root->next[s[0] - 'a']) == 2 ? true : false;
     }
 };
 

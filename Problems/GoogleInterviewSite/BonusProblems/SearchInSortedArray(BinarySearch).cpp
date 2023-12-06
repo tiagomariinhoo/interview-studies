@@ -113,6 +113,52 @@ public:
     }
 };
 
+class Solution {
+public:
+    /**
+        Solution runs in log N and takes constant auxiliary space
+
+        It's important to notice that we have two cases:
+        [5, 1, 3]
+        When nums[mid] is < nums[l] at the beginning
+        [4, 5, 6, 7, 0, 1, 2]
+        When nums[mid]is >= nums[l] at the beginning
+
+        - When nums[mid] >= nums[l], if my target is <= nums[mid] and target >= nums[l]
+        it means that my target is between (l, mid), then r = mid
+        otherwise, r = mid because it's on the other side
+
+        - if nums[mid] < nums[l] at the beinning (like [5, 1, 3])
+        then if target > nums[mid] and target <= nums[r], target is here (l, r), l = mid + 1
+        else r = mid
+    */
+
+    int search(vector<int>& nums, int target) {
+        int ans = 0;
+        int l = 0, r = nums.size() - 1;
+        
+        while (l < r) {
+            int mid = l + (r - l) / 2; // Avoid l = mid;
+            cout << l << " - " << mid << " - " << r << endl;
+
+            if (nums[mid] >= nums[l]) {
+                if (target <= nums[mid] && target >= nums[l]) r = mid;
+                else l = mid + 1;
+            } else {
+                if (target > nums[mid] && target <= nums[r]) l = mid + 1;
+                else r = mid;
+            }
+
+            cout << l << " - " << mid << " - " << r << endl;
+            
+        }
+
+        if (nums[r] == target) return r;
+
+        return -1;
+    }
+};
+
 int main(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);

@@ -148,3 +148,107 @@ int main(){
   
   return 0;
 }
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+
+    /**
+        Let's try to define a Decode String
+        1,2,3,null,null,4,5, null, null, null, null
+        Now to decode it, we just need to get the root node and keep running a BFS according the idx2
+        Every time that I get left and right node to the current node, I change the index to the next two nodes (using getNext twice)
+
+        The solution runs in linear time to decode and linear time to encode
+    */
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (root == NULL) return "";
+
+        string ans = "";
+        queue<TreeNode*> q;
+        q.push(root);
+        ans += (to_string(root->val)) + ',';
+        while (!q.empty()) {
+            TreeNode *node = q.front();
+            q.pop();
+            if (node->left != NULL) q.push(node->left), ans += (to_string(node->left->val) + ',');
+            else ans += "null,";
+            if (node->right != NULL) q.push(node->right), ans += (to_string(node->right->val) + ',');
+            else ans += "null,";
+        }
+
+        cout << ans << endl;
+
+        return ans;
+    }
+
+    int getValue(string current) {
+        if (current == "null" || current == "") return INT_MAX;
+        return stoi(current);
+    }
+
+    // {value, nextIdx}
+    pair<int, int> getNext(string &s, int idx) {
+        if (s[idx] == ',') idx++;
+        string current = "";
+        
+        while (idx != s.size() && s[idx] != ',') {
+            current += s[idx];
+            idx++;
+            if (idx == s.size() || s[idx] == ',') break;
+        }
+
+        return {getValue(current), idx};
+    }
+
+
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        TreeNode *root = NULL;
+        int idx = 0, idx2 = 0;
+        auto current = getNext(data, 0);
+        queue<TreeNode*> q;
+        
+        if (current.first != INT_MAX) {
+            root = new TreeNode(current.first);
+            idx2 = current.second;
+            q.push(root);
+        }
+
+        while (!q.empty()) {
+            TreeNode *aux = q.front();
+            q.pop();
+            auto left = getNext(data, idx2);
+            idx2 = left.second;
+            auto right = getNext(data, idx2);
+            idx2 = right.second;
+
+            if (left.first != INT_MAX) {
+                aux->left = new TreeNode(left.first);
+                q.push(aux->left);
+            }
+
+            if (right.first != INT_MAX) {
+                aux->right = new TreeNode(right.first);
+                q.push(aux->right);
+            }
+        }
+
+        return root;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec ser, deser;
+// TreeNode* ans = deser.deserialize(ser.serialize(root));

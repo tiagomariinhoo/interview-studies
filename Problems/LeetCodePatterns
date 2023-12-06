@@ -1,0 +1,31 @@
+https://seanprashad.com/leetcode-patterns/
+
+----- Sorted by Companies
+1 - TwoSum (OK), Two Pointers
+2 - Longest Substring Without Repeating Characters (OK), Set and Two pointers
+3 - Merge Intervals (OK), Intervals Storing left and right pointers
+4 - Number of Islands (OK), Bfs
+5 - Best Time to Buy and Sell Stock (OK), Greedy
+6 - 3Sum (OK), Two pointers and Sort
+7 - Generate Parentheses (OK), Backtracking
+8 - Median of Two Sorted Arrays
+9 - Longest Palindromic Substring (OK), Dynamic Programming being careful with the points, assuming that if i+1,j-1 is a palindrome and s[i] == s[j], then the whole word is a palindrome
+10 - Trapping Rain Water (OK), Greedy
+11 - Top K Frequent Elements (OK), N Log K, heap (set and unordered_map)
+12 - Maximum Subarray (OK), Kadane and divide and conquer
+13 - Merge K Sorted Lists (OK), Merge Sort [HARD]
+14 - Container With Most Water (OK), Greedy
+15 - Lowest Common Ancestor of a Binary Tree (OK), Dfs
+16 - Course Schedule (OK), Topological Sort
+17 - Search in Rotated Sorted Array (OK), Binary Search with rotation
+
+
+Bonus Problems:
+
+String
+https://leetcode.com/problems/minimum-size-subarray-sum/description/
+https://leetcode.com/problems/permutation-in-string/description/
+
+Tree
+https://leetcode.com/problems/sum-root-to-leaf-numbers/description/
+Word Break with Bottom Up dp

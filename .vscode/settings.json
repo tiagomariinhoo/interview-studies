@@ -26,6 +26,10 @@
         "istream": "cpp",
         "array": "cpp",
         "utility": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "valarray": "cpp",
+        "new": "cpp"
     }
 }

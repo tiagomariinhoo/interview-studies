@@ -1,35 +1,31 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 class Solution {
 public:
-    vector<int> globalNums;
-    vector<vector<int> > answer;
-    
-    void solve(vector<int> vec, int l) {
-        if(l == vec.size()) {
-            answer.push_back(vec);
+    vector<vector<int>> ans;
+
+    /*
+        Simple problem to generate all permutations
+        Just following this idea, swapping all indexes as possible
+
+        Permutation algorithm runs in N! Complexity Time
+    */
+
+    void solve(int idx, vector<int> &nums) {
+        if (idx == nums.size()) {
+            ans.push_back(nums);
             return ;
         }
-        
-        for(int i = l; i < vec.size(); i++) {
-            swap(vec[l], vec[i]);
-            solve(vec, l + 1);
+
+        solve(idx + 1, nums);
+
+        for (int i = idx + 1; i < nums.size(); i++) {
+            swap(nums[i], nums[idx]);
+            solve(idx + 1, nums);
+            swap(nums[i], nums[idx]);
         }
+
     }
-    
     vector<vector<int>> permute(vector<int>& nums) {
-        solve(nums, 0);
-        
-        return answer;
+        solve(0, nums);
+        return ans;
     }
 };
-
-int main(){
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-
-  
-
-  return 0;
-}

@@ -25,40 +25,38 @@ using namespace std;
  */
 class Solution {
 public:
+    /**
+        There are three situations here:
+        - Remove from beginning
+        - Remove from middle 
+        - Remove from end
+    */
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         int count = 0;
         ListNode *aux = head;
-        while(aux != NULL) {
-            count ++;
+        while (aux != NULL) {
+            count++;
             aux = aux->next;
         }
-        
-        if(count == n) {
-            head = head->next;
-        } else if(n == 1) {
-            aux = head;
-            while(1) {
-                if(count == 2) {
-                    aux->next = NULL;
-                    break;
+
+        aux = head;
+        ListNode *prev = NULL;
+
+        while (aux != NULL) {
+            if (count == n) {
+                if (prev != NULL) {
+                    prev->next = aux->next;
+                } else {
+                    head = head->next;
                 }
-                
-                aux = aux->next;
-                count--;
             }
-        } else {
-            aux = head;
-            while(1) {
-                if(count == n + 1) {
-                    aux->next = aux->next->next;
-                    break;
-                }
-                
-                count--;
-                aux = aux->next;
-            }
+
+            prev = aux;
+            aux = aux->next;
+            count--;
+            if (count < 0) break;
         }
-        
+
         return head;
     }
 };

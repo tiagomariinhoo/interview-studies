@@ -65,3 +65,37 @@ int main(){
 
   return 0;
 }
+
+class Solution {
+public:
+
+
+    /**
+        The solution takes O (len_of_cur * 2 ^ k)
+
+        Just using a normal backtracking to try all possible sums
+    */
+
+    vector<vector<int>> ans;
+    vector<int> vec;
+
+    void solve(int idx, int target, vector<int> current) {
+        if (idx == vec.size()) {
+            if (target == 0) ans.push_back(current);
+            return ;
+        }
+
+        for (int i = 0; i <= (target / vec[idx]); i++) {
+            if (i) current.push_back(vec[idx]);
+            solve(idx + 1, target - (i * vec[idx]), current);
+        }
+
+    }
+
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vec = candidates;
+        solve(0, target, vector<int>());
+
+        return ans;
+    }
+};
