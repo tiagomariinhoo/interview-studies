@@ -1,0 +1,554 @@
+{
+  "mediaType": "samples",
+  "name": "Samples",
+  "columns": [
+    {
+      "title": "Id",
+      "dataIndex": "id",
+      "disabledHide": true,
+      "defaultHidden": true,
+      "defaultOrder": 0,
+      "fieldTest": true
+    },
+    {
+      "title": "Image",
+      "dataIndex": "image",
+      "renderConfig": {
+        "type": "image",
+        "width": 70
+      },
+      "defaultHidden": true,
+      "defaultOrder": 1,
+      "fieldTest": true
+    },
+    {
+      "title": "Input Text",
+      "dataIndex": "inputText",
+      "editable": true,
+      "ellipsis": true,
+      "width": 200,
+      "editionField": {
+        "variant": "input",
+        "config": {
+          "name": "inputText",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        },
+        "props": {
+          "placeholder": "Input Placeholder"
+        }
+      },
+      "defaultHidden": true,
+      "defaultOrder": 2,
+      "fieldTest": true
+    },
+    {
+      "title": "Input Password",
+      "width": 140,
+      "dataIndex": "password",
+      "editionField": {
+        "variant": "input",
+        "config": {
+          "name": "password",
+          "rules": [
+            {
+              "required": true
+            },
+            {
+              "min": 6,
+              "message": "Password must be at least 6 characters"
+            }
+          ],
+          "props": {
+            "placeholder": "Input Password"
+          }
+        }
+      },
+      "renderConfig": {
+        "type": "password"
+      },
+      "defaultHidden": true,
+      "defaultOrder": 3,
+      "fieldTest": true
+    },
+    {
+      "title": "Date",
+      "dataIndex": "sampleDate",
+      "editable": true,
+      "width": 150,
+      "editionField": {
+        "variant": "date",
+        "config": {
+          "name": "sampleDate",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        }
+      },
+      "renderConfig": {
+        "type": "date",
+        "format": "DD/MM/YYYY"
+      },
+      "defaultHidden": true,
+      "defaultOrder": 4,
+      "fieldTest": true
+    },
+    {
+      "title": "Number",
+      "dataIndex": "number",
+      "editable": true,
+      "editionField": {
+        "variant": "number",
+        "config": {
+          "name": "number",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        }
+      },
+      "defaultHidden": true,
+      "defaultOrder": 5,
+      "fieldTest": true
+    },
+    {
+      "title": "Slider",
+      "dataIndex": "slider",
+      "renderConfig": {
+        "type": "progress"
+      },
+      "width": 170,
+      "editable": true,
+      "editionField": {
+        "variant": "slider",
+        "config": {
+          "name": "progress",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        }
+      },
+      "defaultHidden": true,
+      "defaultOrder": 6,
+      "fieldTest": true
+    },
+    {
+      "title": "Text Area",
+      "dataIndex": "textArea",
+      "editable": true,
+      "ellipsis": true,
+      "width": 200,
+      "editionField": {
+        "variant": "textarea",
+        "config": {
+          "name": "textArea",
+          "rules": [
+            {
+              "required": true,
+              "max": 400,
+              "min": 0
+            }
+          ]
+        },
+        "props": {
+          "maxLength": 400,
+          "showCount": true,
+          "autoSize": false
+        }
+      },
+      "defaultHidden": true,
+      "defaultOrder": 7,
+      "fieldTest": true
+    },
+    {
+      "title": "Select",
+      "dataIndex": "tags",
+      "editionField": {
+        "variant": "select",
+        "config": {
+          "name": "tags",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        },
+        "props": {
+          "mode": "tags",
+          "maxTagCount": "responsive",
+          "options": [
+            {
+              "label": "Tag 1",
+              "value": "Tag 1"
+            },
+            {
+              "label": "Tag 2",
+              "value": "Tag 2"
+            },
+            {
+              "label": "Tag 3",
+              "value": "Tag 3"
+            },
+            {
+              "label": "Tag 4",
+              "value": "Tag 4"
+            },
+            {
+              "label": "Tag 5",
+              "value": "Tag 5"
+            },
+            {
+              "label": "Tag 6",
+              "value": "Tag 6"
+            }
+          ]
+        }
+      },
+      "renderConfig": {
+        "type": "tag"
+      },
+      "width": 170,
+      "defaultHidden": true,
+      "defaultOrder": 8,
+      "fieldTest": true
+    },
+    {
+      "title": "Tree Select",
+      "dataIndex": "tree-select",
+      "ellipsis": true,
+      "width": 150,
+      "editionField": {
+        "variant": "tree-select",
+        "config": {
+          "name": "tree-select",
+          "col": {
+            "flex": 1
+          },
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        },
+        "props": {
+          "treeData": [
+            {
+              "title": "Option 1",
+              "value": "1",
+              "key": "1",
+              "children": [
+                {
+                  "title": "Child Option 1",
+                  "value": "1-1",
+                  "key": "1-1"
+                },
+                {
+                  "title": "Child Option 2",
+                  "value": "1-2",
+                  "key": "1-2"
+                },
+                {
+                  "title": "Child Option 3",
+                  "value": "1-3",
+                  "key": "1-3"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "renderConfig": {
+        "type": "object-property",
+        "displayProperty": "title"
+      },
+      "defaultHidden": true,
+      "defaultOrder": 9,
+      "fieldTest": true
+    },
+    {
+      "title": "Time",
+      "dataIndex": "time",
+      "width": 130,
+      "editable": true,
+      "editionField": {
+        "variant": "time",
+        "config": {
+          "name": "time",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        }
+      },
+      "renderConfig": {
+        "type": "time",
+        "format": "HH:mm:ss"
+      },
+      "defaultHidden": true,
+      "defaultOrder": 10,
+      "fieldTest": true
+    },
+    {
+      "title": "Switch",
+      "dataIndex": "switch",
+      "editionField": {
+        "variant": "switch",
+        "config": {
+          "name": "switch"
+        }
+      },
+      "renderConfig": {
+        "type": "boolean"
+      },
+      "defaultHidden": true,
+      "defaultOrder": 11,
+      "fieldTest": true
+    },
+    {
+      "title": "Range",
+      "dataIndex": "rangeDate",
+      "width": 260,
+      "editable": true,
+      "editionField": {
+        "variant": "range",
+        "config": {
+          "name": "rangeDate",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        }
+      },
+      "renderConfig": {
+        "type": "range",
+        "format": "DD/MM/YYYY"
+      },
+      "defaultHidden": true,
+      "defaultOrder": 12,
+      "fieldTest": true
+    },
+    {
+      "title": "Related",
+      "dataIndex": "related",
+      "editable": true,
+      "ellipsis": true,
+      "width": 170,
+      "editionField": {
+        "variant": "related",
+        "config": {
+          "name": "related"
+        },
+        "props": {
+          "displayProperty": "inputText",
+          "mediaType": "samples"
+        }
+      },
+      "renderConfig": {
+        "type": "object-property",
+        "displayProperty": "inputText"
+      },
+      "defaultHidden": true,
+      "defaultOrder": 13,
+      "fieldTest": true
+    },
+    {
+      "title": "User Selector",
+      "dataIndex": "userSelector",
+      "editable": true,
+      "ellipsis": true,
+      "width": 260,
+      "editionField": {
+        "variant": "user-selector",
+        "config": {
+          "name": "userSelector",
+          "rules": [
+            {
+              "required": true
+            }
+          ]
+        }
+      },
+      "renderConfig": {
+        "type": "user",
+        "size": 32
+      },
+      "defaultHidden": true,
+      "defaultOrder": 14,
+      "fieldTest": true
+    }
+  ],
+  "filters": [
+    {
+      "mediaType": {
+        "value": "samples",
+        "label": "Samples"
+      },
+      "fields": [
+        {
+          "type": "integer",
+          "config": {
+            "value": "ID_COLUMN",
+            "label": "ID",
+            "operators": [
+              {
+                "value": "equal",
+                "label": "Equals"
+              },
+              {
+                "value": "notEqual",
+                "label": "Not Equal To"
+              },
+              {
+                "value": "greaterThan",
+                "label": "Greater Than"
+              },
+              {
+                "value": "greaterOrEqual",
+                "label": "Greater Than or Equal To"
+              },
+              {
+                "value": "lessThan",
+                "label": "Less Than"
+              },
+              {
+                "value": "lessOrEqual",
+                "label": "Lass Than or Equal To"
+              }
+            ],
+            "isDate": false,
+            "isNumber": true
+          }
+        },
+        {
+          "type": "varchar",
+          "config": {
+            "value": "NAME",
+            "label": "Name",
+            "operators": [
+              {
+                "value": "contains",
+                "label": "Like"
+              },
+              {
+                "value": "equal",
+                "label": "Equals"
+              },
+              {
+                "value": "notEqual",
+                "label": "Not Equal To"
+              },
+              {
+                "value": "startsWith",
+                "label": "Stars With"
+              },
+              {
+                "value": "endsWith",
+                "label": "Ends With"
+              }
+            ],
+            "isDate": false,
+            "isNumber": false
+          }
+        }
+      ]
+    },
+    {
+      "mediaType": {
+        "value": "genres",
+        "label": "Genres"
+      },
+      "fields": [
+        {
+          "type": "integer",
+          "variant": "number",
+          "config": {
+            "value": "ID",
+            "label": "ID",
+            "operators": [
+              {
+                "value": "equal",
+                "label": "Equals"
+              },
+              {
+                "value": "notEqual",
+                "label": "Not Equal To"
+              },
+              {
+                "value": "greaterThan",
+                "label": "Greater Than"
+              },
+              {
+                "value": "greaterOrEqual",
+                "label": "Greater Than or Equal To"
+              },
+              {
+                "value": "lessThan",
+                "label": "Less Than"
+              },
+              {
+                "value": "lessOrEqual",
+                "label": "Lass Than or Equal To"
+              }
+            ],
+            "isDate": false,
+            "isNumber": true
+          }
+        },
+        {
+          "type": "dateTime",
+          "variant": "dateTime",
+          "config": {
+            "value": "DATEINS",
+            "label": "DATEINS",
+            "operators": [
+              {
+                "value": "equal",
+                "label": "Equals"
+              },
+              {
+                "value": "notEqual",
+                "label": "Not Equal To"
+              },
+              {
+                "value": "greaterThan",
+                "label": "Greater Than"
+              },
+              {
+                "value": "greaterOrEqual",
+                "label": "Greater Than or Equal To"
+              },
+              {
+                "value": "lessThan",
+                "label": "Less Than"
+              },
+              {
+                "value": "lessOrEqual",
+                "label": "Lass Than or Equal To"
+              }
+            ],
+            "isDate": true,
+            "isNumber": false
+          }
+        }
+      ]
+    }
+  ],
+  "allowAddNew": false,
+  "allowAddExisting": false,
+  "allowRemove": false,
+  "allowEdit": false,
+  "allowClearAll": false,
+  "allowRowReorder": false,
+  "allowMultiSelect": false,
+  "allowMultiLine": false
+}
